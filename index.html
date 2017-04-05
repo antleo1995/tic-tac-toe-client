@@ -36,6 +36,38 @@
     <div class='starter-template'>
       <h1>Bootstrap starter template</h1>
       <p class='lead'>Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      <h1>API Token Auth</h1>
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" id='sign-up-email' placeholder="Gimme your email">
+          <input type="password" name="credentials[password]" id='sign-up-password' placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" id='sign-up-password-confirmation' placeholder="Password Confirm">
+          <input type="submit" name="submit" value="Sign up!">
+        </fieldset>
+      </form>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign in!</legend>
+          <input type="text" name="credentials[email]" id='sign-in-email' placeholder="Input your email">
+          <input type="password" name="credentials[password]" id='sign-in-password' placeholder="Password">
+          <input type="submit" name="submit" value="Sign in!">
+        </fieldset>
+      </form>
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign out!</legend>
+          <input type="submit" name="submit" value="Sign out!">
+        </fieldset>
+      </form>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="submit" name="submit" value="Change Password!">
+          <input type="password" name="passwords[old]" id='input-change-password' placeholder="Password">
+          <input type="password" name="passwords[]" id='input-change-password-confirmation' placeholder="Password Confirm">
+        </fieldset>
+      </form>
     </div>
 
   </div>

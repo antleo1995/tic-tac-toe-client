@@ -11,6 +11,7 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   console.log('SignIn success ran. Data is: ', data)
   $('.sign-out-button').show()
+  $('#signInModal').modal('toggle')
   store.user = data.user
 }
 const signInFailure = (error) => {

@@ -1,5 +1,5 @@
 let playerIs = 'X'
-
+$('.playerDiv').text(playerIs)
 const putMarker = function () {
   console.log('Clicked a game cell')
   console.log(playerIs)
@@ -8,11 +8,12 @@ const putMarker = function () {
   if (this.innerHTML === '&nbsp;') {
     $(this).text(playerIs)
     $(this).show()
+    $('.playerDiv').text(playerIs)
     if (playerIs === 'X') {
       playerIs = 'O'
     } else playerIs = 'X'
-    return false
-  }
+  } else console.log('Cant click a square twice')
+  return false
 }
 //
 // $('.game-cell').unbind('click').click(putMarker)

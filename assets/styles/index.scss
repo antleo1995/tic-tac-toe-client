@@ -4,7 +4,19 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 body {
   padding-top: 50px;
 }
+
 .starter-template {
-padding: 40px 15px;
-text-align: center;
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.sign-out-btn {
+  clear: both;
+  float: right;
+  vertical-align: top;
+}
+
+.navbarcustom {
+  overflow: hidden;
+  white-space: nowrap;
 }

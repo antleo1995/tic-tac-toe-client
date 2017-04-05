@@ -4,6 +4,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
+const board = require('../gamelogic/game-events.js')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -42,6 +43,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#signUp').on('click', callSignUpModal)
   $('#signIn').on('click', callSignInModal)
+  $('.game-cell').on('click', board.putMarker)
 }
 
 const callSignUpModal = function () {
@@ -51,6 +53,7 @@ const callSignUpModal = function () {
 const callSignInModal = function () {
   $('#signInModal').modal()
 }
+
 module.exports = {
   addHandlers,
   callSignUpModal,

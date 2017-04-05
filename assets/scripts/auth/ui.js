@@ -10,6 +10,7 @@ const signUpFailure = (error) => {
 }
 const signInSuccess = (data) => {
   console.log('SignIn success ran. Data is: ', data)
+  $('.sign-out-button').show()
   store.user = data.user
 }
 const signInFailure = (error) => {
@@ -17,6 +18,7 @@ const signInFailure = (error) => {
 }
 const signOutSuccess = () => {
   console.log('SignOut success ran. Data is: ', store)
+  $('.sign-out-button').hide()
   store.user = null
 }
 const signOutFailure = (error) => {

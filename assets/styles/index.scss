@@ -48,10 +48,14 @@ tr:last-child td {
   text-align: center;
 }
 
-.sign-out-btn {
+.sign-out-btn-form {
   clear: both;
   float: right;
   vertical-align: top;
+}
+
+.sign-out-button {
+  display: none;
 }
 
 .navbarcustom {

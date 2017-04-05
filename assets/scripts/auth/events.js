@@ -40,14 +40,19 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
-  $('#signUp').on('click', callModal)
+  $('#signUp').on('click', callSignUpModal)
+  $('#signIn').on('click', callSignInModal)
 }
 
-const callModal = function () {
-  console.log('Called Modal')
+const callSignUpModal = function () {
   $('#signUpModal').modal()
+}
+
+const callSignInModal = function () {
+  $('#signInModal').modal()
 }
 module.exports = {
   addHandlers,
-  callModal
+  callSignUpModal,
+  callSignInModal
 }

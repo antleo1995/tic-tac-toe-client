@@ -40,18 +40,20 @@ tr:last-child td {
   align-items: center;
 }
 
-.game-cell{
+.game-cell {
   overflow: hidden;
 }
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
 }
 
 .sign-out-btn-form {
+  bottom: 5px;
   clear: both;
   float: right;
-  vertical-align: top;
+  vertical-align: bottom;
 }
 
 .sign-out-button {

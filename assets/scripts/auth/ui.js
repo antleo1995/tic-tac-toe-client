@@ -3,6 +3,8 @@ const store = require('../store.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
+  $('#signUpModal').modal('toggle')
+  $('#signInModal').modal('toggle')
 }
 
 const signUpFailure = (error) => {
@@ -20,6 +22,7 @@ const signInFailure = (error) => {
 const signOutSuccess = () => {
   console.log('SignOut success ran. Data is: ', store)
   $('.sign-out-button').hide()
+  $('#signOutModal').modal('toggle')
   store.user = null
 }
 const signOutFailure = (error) => {
@@ -27,6 +30,7 @@ const signOutFailure = (error) => {
 }
 const changePasswordSuccess = () => {
   console.log('Change Password. Data is: ', store)
+  $('#changePasswordModal').modal('toggle')
 }
 const changePasswordFailure = (error) => {
   console.error('Change Password failure ran. Error is: ', error)

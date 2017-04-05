@@ -11,7 +11,9 @@ const putMarker = function () {
     $('.playerDiv').text(playerIs)
     if (playerIs === 'X') {
       playerIs = 'O'
+      $('.playerDiv').text(playerIs)
     } else playerIs = 'X'
+    $('.playerDiv').text(playerIs)
   } else console.log('Cant click a square twice')
   return false
 }

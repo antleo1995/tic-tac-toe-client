@@ -64,3 +64,34 @@ tr:last-child td {
   overflow: hidden;
   white-space: nowrap;
 }
+td.O {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  color:#455c7b;
+}
+td.X {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  color:#ac6c82;
+}
+td.X:hover, td.O:hover { background:transparent !important }
+
+td.hover-0:after, td.hover-1:after {
+  content:"X";
+  display:block;
+  pointer-events:none;
+  position:relative;
+  text-align:center;
+  vertical-align:center;
+  font-size:80px;
+  color:#546363;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  opacity:0.4;
+}
+td.hover-1:after {
+  content:"O";
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+td.X.hover-0:after, td.X.hover-1:after,
+td.O.hover-0:after, td.O.hover-1:after {
+  display:none !important;
+}

@@ -1,6 +1,7 @@
 let playerIs = 'X'
-let numOfMoves = 0
+let numOfMoves = 1
 
+$('.numOfMovesDiv').text('0')
 $('.playerDiv').text(playerIs)
 
 const putMarker = function () {
@@ -12,6 +13,7 @@ const putMarker = function () {
     $(this).text(playerIs)
     $(this).show()
     $('.playerDiv').text(playerIs)
+    $('.numOfMovesDiv').text(numOfMoves)
     numOfMoves += 1
     if (playerIs === 'X') {
       playerIs = 'O'
@@ -21,9 +23,7 @@ const putMarker = function () {
   } else console.log('Cant click a square twice')
   return false
 }
-//
-// $('.game-cell').unbind('click').click(putMarker)
-// addToCart($(this).attr('id'));
+
 const addGameHandlers = () => {
   $('.game-cell').click(putMarker)
 }

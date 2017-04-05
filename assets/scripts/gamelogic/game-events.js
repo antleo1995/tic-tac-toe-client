@@ -1,5 +1,8 @@
 let playerIs = 'X'
+let numOfMoves = 0
+
 $('.playerDiv').text(playerIs)
+
 const putMarker = function () {
   console.log('Clicked a game cell')
   console.log(playerIs)
@@ -9,6 +12,7 @@ const putMarker = function () {
     $(this).text(playerIs)
     $(this).show()
     $('.playerDiv').text(playerIs)
+    numOfMoves += 1
     if (playerIs === 'X') {
       playerIs = 'O'
       $('.playerDiv').text(playerIs)

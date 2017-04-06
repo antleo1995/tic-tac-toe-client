@@ -3,15 +3,12 @@ const checkVictory = require('./game-logic.js')
 let playerIs = 'X'
 let numOfMoves = 1
 let gameOver = false
-const board = ['', '', '', '', '', '', '', '', '']
-
+let board = ['', '', '', '', '', '', '', '', '']
 $('.numOfMovesDiv').text('0')
 $('.playerDiv').text(playerIs)
 
 const putMarker = function () {
-  // console.log('Clicked a game cell')
-  // console.log(playerIs)
-  // console.log(this.text)
+
   if (this.innerHTML === '&nbsp;' && gameOver === false) {
     $(this).text(playerIs)
     $(this).show()
@@ -21,24 +18,45 @@ const putMarker = function () {
     gameOver = checkVictory.checkVictory(playerIs, board, numOfMoves, gameOver)
     console.log(gameOver)
     if (gameOver === false) {
-    $('.playerDiv').text(playerIs)
-    $('.numOfMovesDiv').text(numOfMoves)
-    numOfMoves += 1
-    // console.log(board)
-    if (playerIs === 'X') {
-      playerIs = 'O'
       $('.playerDiv').text(playerIs)
-    } else playerIs = 'X'
-    $('.playerDiv').text(playerIs)
-  } else (console.log('GameOver'))
+      $('.numOfMovesDiv').text(numOfMoves)
+      numOfMoves += 1
+    // console.log(board)
+      if (playerIs === 'X') {
+        playerIs = 'O'
+        $('.playerDiv').text(playerIs)
+      } else playerIs = 'X'
+      $('.playerDiv').text(playerIs)
+    } else (console.log('GameOver'))
+  }
 }
+
+const resetBoard = function () {
+  //$('td').text(String.fromCharCode(160))
+  $('#0').text(String.fromCharCode(160))
+  $('#1').text(String.fromCharCode(160))
+  $('#2').text(String.fromCharCode(160))
+  $('#3').text(String.fromCharCode(160))
+  $('#4').text(String.fromCharCode(160))
+  $('#5').text(String.fromCharCode(160))
+  $('#6').text(String.fromCharCode(160))
+  $('#7').text(String.fromCharCode(160))
+  $('#8').text(String.fromCharCode(160))
+  board = ['', '', '', '', '', '', '', '', '']
+  numOfMoves = 1
+  playerIs = 'X'
+  $('.playerDiv').text(playerIs)
+  $('.numOfMovesDiv').text(numOfMoves)
+  gameOver = false
 }
 
 const addGameHandlers = () => {
-  $('.game-cell').click(putMarker)
+  $('.game-cell').on('click', putMarker)
+  $('.reset-button').on('click', resetBoard)
 }
 
 module.exports = {
   putMarker,
-  addGameHandlers
+  addGameHandlers,
+  resetBoard
 }

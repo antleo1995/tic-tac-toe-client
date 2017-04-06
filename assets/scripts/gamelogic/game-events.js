@@ -8,7 +8,6 @@ $('.numOfMovesDiv').text('0')
 $('.playerDiv').text(playerIs)
 
 const putMarker = function () {
-
   if (this.innerHTML === '&nbsp;' && gameOver === false) {
     $(this).text(playerIs)
     $(this).show()

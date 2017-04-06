@@ -9,6 +9,10 @@ Starting my tic-tac-toe game. Will build out this file as things change.
 1. Run command 'npm install'
 2. Start server 'grunt server'
 
+## Deployed signOutSuccess
+
+https://antleo1995.github.io/tic-tac-toe-client/
+
 ## [License](LICENSE)
 
 1.  All content is licensed under a CC­BY­NC­SA 4.0 license.

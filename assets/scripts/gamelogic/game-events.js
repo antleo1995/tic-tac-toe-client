@@ -16,10 +16,14 @@ const putMarker = function () {
   if (this.innerHTML === '&nbsp;') {
     $(this).text(playerIs)
     $(this).show()
+    const id = $(this).attr('id')
+    console.log(id)
+    board[id] = playerIs
     checkVictory.checkVictory(playerIs, board)
     $('.playerDiv').text(playerIs)
     $('.numOfMovesDiv').text(numOfMoves)
     numOfMoves += 1
+    // console.log(board)
     if (playerIs === 'X') {
       playerIs = 'O'
       $('.playerDiv').text(playerIs)

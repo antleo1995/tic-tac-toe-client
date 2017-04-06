@@ -1,5 +1,42 @@
 let playerIs = 'X'
 let numOfMoves = 1
+let playerPos = []
+let array = ['X', 'X', 'X', '', '', '', '', '', '']
+const winScenarios = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6],
+    [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
+    ]
+const returnPos = function (someArray, playerIs) {
+  const indices = []
+  let element = playerIs
+  let idx = someArray.indexOf(element)
+  while (idx != -1) {
+    indices.push(idx)
+    idx = array.indexOf(element, idx + 1)
+  }
+  return indices
+}
+console.log(returnPos(array, playerIs))
+playerPos = returnPos(array, playerIs)
+console.log(playerPos)
+
+for (let i = 0; i < winScenarios.length; i++) {
+    if (winScenarios.some(playerPos)){
+      console.log("You won!")
+    }
+ }
+
+const winsX = [
+['X', 'X', 'X', '', '', '', '', '', ''],
+['', '', '', 'X', 'X', 'X', '', '', ''],
+['', '', '', '', '', '', 'X', 'X', 'X'],
+['X', '', '', 'X', '', '', 'X', '', ''],
+['', 'X', '', '', 'X', '', '', 'X', ''],
+['X', 'X', 'X', '', '', '', '', '', ''],
+['X', 'X', 'X', '', '', '', '', '', ''],
+['X', 'X', 'X', '', '', '', '', '', '']
+]
+
 
 $('.numOfMovesDiv').text('0')
 $('.playerDiv').text(playerIs)

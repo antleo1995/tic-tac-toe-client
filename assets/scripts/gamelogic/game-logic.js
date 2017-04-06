@@ -24,18 +24,22 @@ const checkVictory = function (player, board, numOfMoves, gameOver) {
     // let gameWon = true
     if (player === 'X') {
       console.log('Player X has won!')
+      $('#gameStateModal').modal('toggle')
       return true
     } else {
       console.log('Player O has won!')
+      $('#gameStateModal').modal('toggle')
       return true
     }  // Declare the WINNER!!!!!
     // If no winner check for tie
   } else {
     if (numOfMoves < 9 && gameOver === false) {
-    console.log('No One has won!. Checking for Tie')
-    return false}
+      console.log('No One has won!. Checking for Tie')
+      return false
+    }
     else (numOfMoves = 9 && gameOver === false)
     console.log('cat won')
+    $('#catWonModal').modal('toggle')
   }
 }
 module.exports = {

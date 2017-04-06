@@ -32,7 +32,6 @@ const putMarker = function () {
 }
 
 const resetBoard = function () {
-  //$('td').text(String.fromCharCode(160))
   $('#0').text(String.fromCharCode(160))
   $('#1').text(String.fromCharCode(160))
   $('#2').text(String.fromCharCode(160))

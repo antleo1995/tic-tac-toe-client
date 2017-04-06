@@ -1,4 +1,4 @@
-const checkVictory = function (player, board) {
+const checkVictory = function (player, board, numOfMoves, gameOver) {
  // Check Victory is the function
   console.log(board)
   if (
@@ -24,16 +24,20 @@ const checkVictory = function (player, board) {
     // let gameWon = true
     if (player === 'X') {
       console.log('Player X has won!')
+      return true
     } else {
       console.log('Player O has won!')
-    }
-    return   // Declare the WINNER!!!!!
+      return true
+    }  // Declare the WINNER!!!!!
     // If no winner check for tie
   } else {
+    if (numOfMoves < 9 && gameOver === false) {
     console.log('No One has won!. Checking for Tie')
+    return false}
+    else (numOfMoves = 9 && gameOver === false)
+    console.log('cat won')
   }
 }
-
 module.exports = {
   checkVictory
 }

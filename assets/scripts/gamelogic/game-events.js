@@ -2,24 +2,25 @@ const checkVictory = require('./game-logic.js')
 
 let playerIs = 'X'
 let numOfMoves = 1
-
-let board = ['', '', '', '', '', '', '', '', '']
+let gameOver = false
+const board = ['', '', '', '', '', '', '', '', '']
 
 $('.numOfMovesDiv').text('0')
 $('.playerDiv').text(playerIs)
 
 const putMarker = function () {
-  console.log('Clicked a game cell')
-  console.log(playerIs)
-  console.log(this.text)
-
-  if (this.innerHTML === '&nbsp;') {
+  // console.log('Clicked a game cell')
+  // console.log(playerIs)
+  // console.log(this.text)
+  if (this.innerHTML === '&nbsp;' && gameOver === false) {
     $(this).text(playerIs)
     $(this).show()
     const id = $(this).attr('id')
     console.log(id)
     board[id] = playerIs
-    checkVictory.checkVictory(playerIs, board)
+    gameOver = checkVictory.checkVictory(playerIs, board, numOfMoves, gameOver)
+    console.log(gameOver)
+    if (gameOver === false) {
     $('.playerDiv').text(playerIs)
     $('.numOfMovesDiv').text(numOfMoves)
     numOfMoves += 1
@@ -29,8 +30,8 @@ const putMarker = function () {
       $('.playerDiv').text(playerIs)
     } else playerIs = 'X'
     $('.playerDiv').text(playerIs)
-  } else console.log('Cant click a square twice')
-  return false
+  } else (console.log('GameOver'))
+}
 }
 
 const addGameHandlers = () => {

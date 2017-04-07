@@ -42,6 +42,7 @@ const checkVictory = function (player, board, numOfMoves, gameOver) {
     $('#catWonModal').modal('toggle')
   }
 }
+
 module.exports = {
   checkVictory
 }

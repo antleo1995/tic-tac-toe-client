@@ -42,6 +42,7 @@ const getAllGames = (data) => {
     data
   })
 }
+
 /*
 const signIn = (data) => {
   return $.ajax({

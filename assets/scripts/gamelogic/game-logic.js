@@ -25,10 +25,12 @@ const checkVictory = function (player, board, numOfMoves, gameOver) {
     if (player === 'X') {
       console.log('Player X has won!')
       $('#gameStateModal').modal('toggle')
+      $('.reset-button').show()
       return true
     } else {
       console.log('Player O has won!')
       $('#gameStateModal').modal('toggle')
+      $('.reset-button').show()
       return true
     }  // Declare the WINNER!!!!!
     // If no winner check for tie

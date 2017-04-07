@@ -36,13 +36,16 @@ tr:last-child td {
   border-bottom-width: 0;
 }
 
+.board-container {
+  display: none;
+}
+
 .catwin {
   text-align: center;
 }
 
 .game-board {
   align-items: center;
-  display: hidden;
 }
 
 .game-cell {
@@ -53,7 +56,9 @@ tr:last-child td {
   padding: 40px 15px;
   text-align: center;
 }
-
+.dummy-board {
+  display: show;
+}
 .sign-out-btn-form {
   bottom: 5px;
   clear: both;

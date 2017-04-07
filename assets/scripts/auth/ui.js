@@ -13,6 +13,8 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   console.log('SignIn success ran. Data is: ', data)
   $('.sign-out-button').show()
+  $('.dummy-board').hide()
+  $('.create-game').show()
   $('#signInModal').modal('toggle')
   store.user = data.user
 }

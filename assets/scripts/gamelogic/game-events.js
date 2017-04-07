@@ -21,7 +21,9 @@ const putMarker = function () {
     $(this).text(playerIs)
     $(this).show()
     const id = $(this).attr('id')
-    const data = {
+    console.log(id)
+    console.log(playerIs)
+    let gamedata = {
       'game': {
         'cell': {
           'index': id,
@@ -30,7 +32,9 @@ const putMarker = function () {
         'over': gameOver
       }
     }
-    gameapi.updateGame(data)
+    console.log(gamedata)
+    gameapi.updateGame(gamedata)
+    console.log(store.game)
     console.log(id)
     board[id] = playerIs
     gameOver = checkVictory.checkVictory(playerIs, board, numOfMoves, gameOver)
@@ -45,7 +49,19 @@ const putMarker = function () {
         $('.playerDiv').text(playerIs)
       } else playerIs = 'X'
       $('.playerDiv').text(playerIs)
-    } else (console.log('GameOver'))
+    } else {
+      gamedata = {
+        'game': {
+          'cell': {
+            'index': id,
+            'value': playerIs
+          },
+          'over': true
+        }
+      }
+      console.log('Gameover: ', gamedata)
+      gameapi.updateGame(gamedata)
+    }
   }
 }
 
@@ -65,6 +81,7 @@ const resetBoard = function () {
   $('.playerDiv').text(playerIs)
   $('.numOfMovesDiv').text(numOfMoves)
   gameOver = false
+  createGame()
 }
 
 const addGameHandlers = () => {

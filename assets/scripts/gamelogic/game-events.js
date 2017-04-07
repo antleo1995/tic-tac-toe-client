@@ -1,4 +1,5 @@
 const checkVictory = require('./game-logic.js')
+const gameapi = require('./gameapi.js')
 
 let playerIs = 'X'
 let numOfMoves = 1
@@ -6,7 +7,11 @@ let gameOver = false
 let board = ['', '', '', '', '', '', '', '', '']
 $('.numOfMovesDiv').text('0')
 $('.playerDiv').text(playerIs)
+let data = '{}'
 
+const createGame = function () {
+  gameapi.createGame(data)
+}
 const putMarker = function () {
   if (this.innerHTML === '&nbsp;' && gameOver === false) {
     $(this).text(playerIs)
@@ -51,10 +56,12 @@ const resetBoard = function () {
 const addGameHandlers = () => {
   $('.game-cell').on('click', putMarker)
   $('.reset-button').on('click', resetBoard)
+  $('.create-game').on('click', createGame)
 }
 
 module.exports = {
   putMarker,
   addGameHandlers,
-  resetBoard
+  resetBoard,
+  createGame
 }

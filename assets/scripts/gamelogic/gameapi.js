@@ -22,6 +22,26 @@ const updateGame = (data) => {
     data
   })
 }
+const getGamesOver = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/games?over=true',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+const getAllGames = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 /*
 const signIn = (data) => {
   return $.ajax({
@@ -53,5 +73,7 @@ const changePassword = (data) => {
 */
 module.exports = {
   createGame,
-  updateGame
+  updateGame,
+  getGamesOver,
+  getAllGames
 }

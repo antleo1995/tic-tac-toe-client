@@ -83,11 +83,16 @@ const resetBoard = function () {
   gameOver = false
   createGame()
 }
-
+const getGamesOver = function () {
+  gameapi.getGamesOver(data)
+  .then(gameui.onGetGameSuccess)
+  .catch(gameui.onGetGameFailure)
+}
 const addGameHandlers = () => {
   $('.game-cell').on('click', putMarker)
   $('.reset-button').on('click', resetBoard)
   $('.create-game').on('click', createGame)
+  $('.get-game').on('click', getGamesOver)
 }
 
 module.exports = {

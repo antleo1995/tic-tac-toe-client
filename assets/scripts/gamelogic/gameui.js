@@ -10,7 +10,20 @@ const createGameSuccess = (data) => {
 const gameCreateFailure = (error) => {
   console.error('Create game failure. Error is: ', error)
 }
+const onGetGameSuccess = (data) => {
+  store.gameData = data.games
+  console.log(data.games)
+  console.log(data.games.length)
+  $('.NumberOfGames').text(data.games.length)
+  return data.games.length
+}
+const onGetGameFailure = (error) => {
+  console.log(error)
+}
+
 module.exports = {
   createGameSuccess,
-  gameCreateFailure
+  gameCreateFailure,
+  onGetGameSuccess,
+  onGetGameFailure
 }

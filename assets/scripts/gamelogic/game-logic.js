@@ -42,6 +42,7 @@ const checkVictory = function (player, board, numOfMoves, gameOver) {
     else (numOfMoves = 9 && gameOver === false)
     console.log('cat won')
     $('#catWonModal').modal('toggle')
+    $('.reset-button').show()
   }
 }
 

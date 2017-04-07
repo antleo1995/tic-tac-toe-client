@@ -1,5 +1,7 @@
 const checkVictory = require('./game-logic.js')
 const gameapi = require('./gameapi.js')
+const gameui = require('./gameui.js')
+const store = require('../store.js')
 
 let playerIs = 'X'
 let numOfMoves = 1
@@ -7,16 +9,28 @@ let gameOver = false
 let board = ['', '', '', '', '', '', '', '', '']
 $('.numOfMovesDiv').text('0')
 $('.playerDiv').text(playerIs)
-let data = '{}'
+const data = '{}'
 
 const createGame = function () {
   gameapi.createGame(data)
+  .then(gameui.createGameSuccess)
+  .catch(gameui.gameCreateFailure)
 }
 const putMarker = function () {
   if (this.innerHTML === '&nbsp;' && gameOver === false) {
     $(this).text(playerIs)
     $(this).show()
     const id = $(this).attr('id')
+    const data = {
+      'game': {
+        'cell': {
+          'index': id,
+          'value': playerIs
+        },
+        'over': gameOver
+      }
+    }
+    gameapi.updateGame(data)
     console.log(id)
     board[id] = playerIs
     gameOver = checkVictory.checkVictory(playerIs, board, numOfMoves, gameOver)

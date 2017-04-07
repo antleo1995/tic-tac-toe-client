@@ -12,6 +12,16 @@ const createGame = (data) => {
     data
   })
 }
+const updateGame = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 /*
 const signIn = (data) => {
   return $.ajax({
@@ -42,5 +52,6 @@ const changePassword = (data) => {
 }
 */
 module.exports = {
-  createGame
+  createGame,
+  updateGame
 }

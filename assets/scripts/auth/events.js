@@ -54,7 +54,6 @@ const addHandlers = () => {
   $('#signUp').on('click', callSignUpModal)
   $('#signIn').on('click', callSignInModal)
 }
-
 // couldn't pass parameters to a function that was
 // being setup as a click handler so i created 2
 // separate functions for my needs here
@@ -64,7 +63,6 @@ const callSignUpModal = function () {
 const callSignInModal = function () {
   $('#signInModal').modal()
 }
-
 module.exports = {
   addHandlers,
   callSignUpModal,

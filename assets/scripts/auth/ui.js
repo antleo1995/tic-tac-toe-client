@@ -40,7 +40,7 @@ const signOutFailure = (error) => {
 }
 const changePasswordSuccess = () => {
   console.log('Change Password. Data is: ', store)
-  $('#changePasswordModal').modal('toggle')
+  $('#changePasswordSucceedModal').modal('toggle')
 }
 const changePasswordFailure = (error) => {
   return error

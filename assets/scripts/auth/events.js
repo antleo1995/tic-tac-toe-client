@@ -30,10 +30,14 @@ const onSignOut = function (event) {
 }
 const onChangePassword = function (event) {
   event.preventDefault()
-    const data = getFormFields(this)
+  const data = getFormFields(this)
+  if (store.user === undefined || store.user === null) {
+    $('#changePasswordFailModal').modal('toggle')
+  } else {
     api.changePassword(data)
   .then(ui.changePasswordSuccess)
   .catch(ui.changePasswordFailure)
+  }
 }
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)

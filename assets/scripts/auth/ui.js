@@ -3,16 +3,14 @@ const store = require('../store.js')
 const game = require('../gamelogic/game-events.js')
 
 const signUpSuccess = (data) => {
-  console.log(data)
   $('#signUpModal').modal('toggle')
   $('#signInModal').modal('toggle')
 }
 
 const signUpFailure = (error) => {
-  console.error(error)
+  return error
 }
 const signInSuccess = (data) => {
-  console.log('SignIn success ran. Data is: ', data)
   $('.sign-out-button').show()
   $('.dummy-board').hide()
   $('#signInModal').modal('toggle')
@@ -23,10 +21,9 @@ const signInSuccess = (data) => {
   game.getGamesOver()
 }
 const signInFailure = (error) => {
-  console.error('SignIn failure ran. Error is: ', error)
+  return error
 }
 const signOutSuccess = () => {
-  console.log('SignOut success ran. Data is: ', store)
   $('.sign-out-button').hide()
   $('#signOutModal').modal('toggle')
   $('.game-board').hide()
@@ -36,10 +33,9 @@ const signOutSuccess = () => {
   store.user = null
 }
 const signOutFailure = (error) => {
-  console.error('SignOut failure ran. Error is: ', error)
+  return error
 }
 const changePasswordSuccess = () => {
-  console.log('Change Password. Data is: ', store)
   $('#changePasswordSucceedModal').modal('toggle')
 }
 const changePasswordFailure = (error) => {

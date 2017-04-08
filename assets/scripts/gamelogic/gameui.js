@@ -11,8 +11,8 @@ const gameCreateFailure = (error) => {
 }
 const onGetGameSuccess = (data) => {
   store.gameData = data.games
-  console.log(data.games)
-  console.log(data.games.length)
+  // console.log(data.games)
+  // console.log(data.games.length)
   $('.NumberOfGames').text(data.games.length)
   return data.games.length
 }

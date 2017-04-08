@@ -19,7 +19,7 @@ const signInSuccess = (data) => {
   $('.game-board').show()
   store.user = data.user
   game.createGame()
-
+  game.getGamesOver()
 }
 const signInFailure = (error) => {
   console.error('SignIn failure ran. Error is: ', error)

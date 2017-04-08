@@ -2,6 +2,7 @@ const checkVictory = require('./game-logic.js')
 const gameapi = require('./gameapi.js')
 const gameui = require('./gameui.js')
 const store = require('../store.js')
+const data = '{}'
 
 let playerIs = 'X'
 let numOfMoves = 1
@@ -9,7 +10,12 @@ let gameOver = false
 let board = ['', '', '', '', '', '', '', '', '']
 $('.numOfMovesDiv').text('0')
 $('.playerDiv').text(playerIs)
-const data = '{}'
+
+const getGamesOver = function () {
+  gameapi.getGamesOver(data)
+  .then(gameui.onGetGameSuccess)
+  .catch(gameui.onGetGameFailure)
+}
 
 const createGame = function () {
   gameapi.createGame(data)
@@ -58,6 +64,7 @@ const putMarker = function () {
           'over': true
         }
       }
+      getGamesOver()
       console.log('Gameover: ', gamedata)
       gameapi.updateGame(gamedata)
     }
@@ -82,11 +89,7 @@ const resetBoard = function () {
   gameOver = false
   createGame()
 }
-const getGamesOver = function () {
-  gameapi.getGamesOver(data)
-  .then(gameui.onGetGameSuccess)
-  .catch(gameui.onGetGameFailure)
-}
+
 const addGameHandlers = () => {
   $('.game-cell').on('click', putMarker)
   $('.reset-button').on('click', resetBoard)
@@ -97,5 +100,6 @@ module.exports = {
   putMarker,
   addGameHandlers,
   resetBoard,
-  createGame
+  createGame,
+  getGamesOver
 }

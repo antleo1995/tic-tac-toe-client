@@ -4,6 +4,7 @@ const gameui = require('./gameui.js')
 const store = require('../store.js')
 const data = '{}'
 
+let id = null
 let playerIs = 'X'
 let numOfMoves = 1
 let gameOver = false
@@ -22,11 +23,31 @@ const createGame = function () {
   .then(gameui.createGameSuccess)
   .catch(gameui.gameCreateFailure)
 }
+
+const resetBoard = function () {
+  $('#0').text(String.fromCharCode(160))
+  $('#1').text(String.fromCharCode(160))
+  $('#2').text(String.fromCharCode(160))
+  $('#3').text(String.fromCharCode(160))
+  $('#4').text(String.fromCharCode(160))
+  $('#5').text(String.fromCharCode(160))
+  $('#6').text(String.fromCharCode(160))
+  $('#7').text(String.fromCharCode(160))
+  $('#8').text(String.fromCharCode(160))
+  board = ['', '', '', '', '', '', '', '', '']
+  numOfMoves = 1
+  playerIs = 'X'
+  $('.playerDiv').text(playerIs)
+  $('.numOfMovesDiv').text(numOfMoves)
+  gameOver = false
+  createGame()
+}
 const putMarker = function () {
   if (this.innerHTML === '&nbsp;' && gameOver === false) {
     $(this).text(playerIs)
     $(this).show()
-    const id = $(this).attr('id')
+    id = $(this).attr('id')
+    store.cell = id
     console.log(id)
     console.log(playerIs)
     let gamedata = {
@@ -67,33 +88,13 @@ const putMarker = function () {
       getGamesOver()
       console.log('Gameover: ', gamedata)
       gameapi.updateGame(gamedata)
+      resetBoard()
     }
   }
 }
 
-const resetBoard = function () {
-  $('#0').text(String.fromCharCode(160))
-  $('#1').text(String.fromCharCode(160))
-  $('#2').text(String.fromCharCode(160))
-  $('#3').text(String.fromCharCode(160))
-  $('#4').text(String.fromCharCode(160))
-  $('#5').text(String.fromCharCode(160))
-  $('#6').text(String.fromCharCode(160))
-  $('#7').text(String.fromCharCode(160))
-  $('#8').text(String.fromCharCode(160))
-  board = ['', '', '', '', '', '', '', '', '']
-  numOfMoves = 1
-  playerIs = 'X'
-  $('.playerDiv').text(playerIs)
-  $('.numOfMovesDiv').text(numOfMoves)
-  gameOver = false
-  createGame()
-}
-
 const addGameHandlers = () => {
   $('.game-cell').on('click', putMarker)
-  $('.reset-button').on('click', resetBoard)
-  $('.get-game').on('click', getGamesOver)
 }
 
 module.exports = {
@@ -101,5 +102,7 @@ module.exports = {
   addGameHandlers,
   resetBoard,
   createGame,
-  getGamesOver
+  getGamesOver,
+  playerIs,
+  id
 }

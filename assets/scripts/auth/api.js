@@ -1,6 +1,8 @@
 'use strict'
 const config = require('../config')
 const store = require('../store.js')
+const game = require('../gamelogic/game-events.js')
+const gameapi = require('../gamelogic/gameapi.js')
 
 const signUp = (data) => {
   return $.ajax({
@@ -17,6 +19,17 @@ const signIn = (data) => {
   })
 }
 const signOut = () => {
+  console.log(store.cell)
+  const gamedata = {
+    'game': {
+      'cell': {
+        'index': store.cell,
+        'value': game.playerIs
+      },
+      'over': true
+    }
+  }
+  gameapi.updateGame(gamedata)
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',

@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store.js')
 const game = require('../gamelogic/game-events.js')
+const gameapi = require('../gamelogic/gameapi.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -43,6 +44,7 @@ const changePasswordSuccess = () => {
   $('#changePasswordSucceedModal').modal('toggle')
 }
 const changePasswordFailure = (error) => {
+  $('#changePasswordFailModal').modal('toggle')
   return error
 }
 module.exports = {

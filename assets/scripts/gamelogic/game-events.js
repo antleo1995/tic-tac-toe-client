@@ -12,7 +12,6 @@ let gameOver = false
 let board = ['', '', '', '', '', '', '', '', '']
 // displays the current player
 $('.playerDiv').text(playerIs)
-
 // retrieves the number of games completed on server
 // display portion happens in onGetGameSuccess
 const getGamesOver = function () {

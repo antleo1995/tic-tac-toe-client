@@ -19,7 +19,6 @@ const signIn = (data) => {
   })
 }
 const signOut = () => {
-  console.log(store.cell)
   const gamedata = {
     'game': {
       'cell': {
@@ -39,7 +38,6 @@ const signOut = () => {
   })
 }
 const changePassword = (data) => {
-  console.log('Data is: ', data)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',

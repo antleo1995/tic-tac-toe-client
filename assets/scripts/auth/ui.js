@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store.js')
+const game = require('../gamelogic/game-events.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -14,10 +15,11 @@ const signInSuccess = (data) => {
   console.log('SignIn success ran. Data is: ', data)
   $('.sign-out-button').show()
   $('.dummy-board').hide()
-  $('.create-game').show()
   $('#signInModal').modal('toggle')
   $('.game-board').show()
   store.user = data.user
+  game.createGame()
+
 }
 const signInFailure = (error) => {
   console.error('SignIn failure ran. Error is: ', error)

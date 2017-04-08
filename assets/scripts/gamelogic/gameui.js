@@ -4,7 +4,6 @@ const createGameSuccess = (data) => {
   console.log('SignIn success ran. Data is: ', data)
   store.game = data.game
   $('.board-container').show()
-  $('.create-game').hide()
   console.log(data.game)
 }
 const gameCreateFailure = (error) => {

@@ -43,7 +43,6 @@ const putMarker = function () {
       $('.playerDiv').text(playerIs)
       $('.numOfMovesDiv').text(numOfMoves)
       numOfMoves += 1
-    // console.log(board)
       if (playerIs === 'X') {
         playerIs = 'O'
         $('.playerDiv').text(playerIs)
@@ -91,7 +90,6 @@ const getGamesOver = function () {
 const addGameHandlers = () => {
   $('.game-cell').on('click', putMarker)
   $('.reset-button').on('click', resetBoard)
-  $('.create-game').on('click', createGame)
   $('.get-game').on('click', getGamesOver)
 }
 

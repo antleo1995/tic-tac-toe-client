@@ -16,6 +16,7 @@ const signInSuccess = (data) => {
   $('.dummy-board').hide()
   $('.create-game').show()
   $('#signInModal').modal('toggle')
+  $('.game-board').show()
   store.user = data.user
 }
 const signInFailure = (error) => {
@@ -25,6 +26,9 @@ const signOutSuccess = () => {
   console.log('SignOut success ran. Data is: ', store)
   $('.sign-out-button').hide()
   $('#signOutModal').modal('toggle')
+  $('.game-board').hide()
+  $('.create-game').hide()
+  $('.reset-button').hide()
   store.user = null
 }
 const signOutFailure = (error) => {

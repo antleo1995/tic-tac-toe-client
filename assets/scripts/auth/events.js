@@ -3,6 +3,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -29,10 +30,14 @@ const onSignOut = function (event) {
 }
 const onChangePassword = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
-  api.changePassword(data)
+  if (store.user === undefined) {
+    $('#notSignedInModal').modal('toggle')
+  } else {
+    const data = getFormFields(this)
+    api.changePassword(data)
   .then(ui.changePasswordSuccess)
   .catch(ui.changePasswordFailure)
+  }
 }
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)

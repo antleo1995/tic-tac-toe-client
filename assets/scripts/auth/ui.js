@@ -17,6 +17,7 @@ const signInSuccess = (data) => {
   $('.dummy-board').hide()
   $('#signInModal').modal('toggle')
   $('.game-board').show()
+  $('.change-password').show()
   store.user = data.user
   game.createGame()
   game.getGamesOver()
@@ -31,6 +32,7 @@ const signOutSuccess = () => {
   $('.game-board').hide()
   $('.create-game').hide()
   $('.reset-button').hide()
+  $('.change-password').hide()
   store.user = null
 }
 const signOutFailure = (error) => {
@@ -41,7 +43,7 @@ const changePasswordSuccess = () => {
   $('#changePasswordModal').modal('toggle')
 }
 const changePasswordFailure = (error) => {
-  console.error('Change Password failure ran. Error is: ', error)
+  return error
 }
 module.exports = {
   signUpSuccess,

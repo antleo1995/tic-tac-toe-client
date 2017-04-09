@@ -11,13 +11,13 @@ table {
   vertical-align: bottom;
   width: 50%;
   margin-left: 25%;
-  margin-right: 25;
-  margin-top: auto;
+  margin-right: 25%;
+  margin-top: 10px;
 }
 
 td {
-  width: 750px;
-  height:90px;
+  width: 25%;
+  height:25%;
   border: 0px solid #546363;
   border-right-width: 6px;
   border-bottom-width: 6px;
@@ -60,8 +60,10 @@ tr:last-child td {
 .dummy-board {
   clear: right;
   display: show;
-  vertical-align: bottom;
   margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 10px;
+  vertical-align: bottom;
 }
 .sign-out-btn-form {
   margin: 10px;
@@ -89,8 +91,12 @@ tr:last-child td {
 
 .stats {
   font-size: 10px;
+  border-right: 2px solid black;
 }
-
+.stats:nth-child(4) {
+  font-size: 10px;
+  border: none;
+}
 .change-password {
   display: none;
 }

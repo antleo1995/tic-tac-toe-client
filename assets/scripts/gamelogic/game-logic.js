@@ -1,4 +1,4 @@
-
+const store = require('../store.js')
 const checkVictory = function (player, board, numOfMoves, gameOver) {
  // Compares the current player and board to list of winning combos
  // uses number of moves and gameover state to control flow of code
@@ -65,7 +65,24 @@ const checkServerWins = function (board, player) {
     return 1
   } else return 0
 }
+const displayWins = function () {
+  let resultX = 0
+  for (let i = 0; i < store.gameData.length; i++) {
+    resultX = resultX + checkServerWins(store.gameData[i].cells, 'X')
+  }
+  let resultO = 0
+  for (let i = 0; i < store.gameData.length; i++) {
+    resultO = resultO + checkServerWins(store.gameData[i].cells, 'O')
+  }
+  const cat = store.gameData.length - (resultO + resultX)
+  $('.NumberOfGames').text(store.gameData.length)
+  $('.NumberXwins').text(resultX)
+  $('.NumberOwins').text(resultO)
+  $('.NumberCatWins').text(cat)
+}
+
 module.exports = {
   checkVictory,
-  checkServerWins
+  checkServerWins,
+  displayWins
 }

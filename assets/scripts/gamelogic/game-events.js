@@ -71,6 +71,7 @@ const putMarker = function () {
     // this allows the board on screen to directly mimic
     // the board stored in memory
     id = $(this).attr('id')
+    // selects the color of the piece
     if (playerIs === 'X') {
       $(this).addClass('x')
     } else $(this).addClass('o')
@@ -134,7 +135,7 @@ const putMarker = function () {
       // clears the board and starts a new game
         resetBoard()
       }
-      setTimeout(endGame, 5000)
+      setTimeout(endGame, 3000)
     }
   }
 }

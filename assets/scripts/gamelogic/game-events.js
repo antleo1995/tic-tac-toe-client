@@ -132,7 +132,7 @@ const putMarker = function () {
       // clears the board and starts a new game
         resetBoard()
       }
-      setTimeout(endGame, 300)
+      setTimeout(endGame, 2500)
     }
   }
 }

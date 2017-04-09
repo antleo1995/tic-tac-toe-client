@@ -10,6 +10,7 @@ const signUpSuccess = (data) => {
 }
 
 const signUpFailure = (error) => {
+  $('#authenticationFailModal').modal('toggle')
   return error
 }
 const signInSuccess = (data) => {
@@ -23,6 +24,7 @@ const signInSuccess = (data) => {
   gameapi.getGamesOver()
 }
 const signInFailure = (error) => {
+  $('#authenticationFailModal').modal('toggle')
   return error
 }
 const signOutSuccess = () => {
@@ -42,7 +44,7 @@ const changePasswordSuccess = () => {
   $('#changePasswordSucceedModal').modal('toggle')
 }
 const changePasswordFailure = (error) => {
-  $('#changePasswordFailModal').modal('toggle')
+  $('#authenticationFailModal').modal('toggle')
   return error
 }
 module.exports = {

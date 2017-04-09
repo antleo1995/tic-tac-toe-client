@@ -16,8 +16,8 @@ table {
 }
 
 td {
-  width: 15%;
-  height: 15%;
+  width: 750px;
+  height:90px;
   border: 0px solid #546363;
   border-right-width: 6px;
   border-bottom-width: 6px;
@@ -58,15 +58,15 @@ tr:last-child td {
   text-align: center;
 }
 .dummy-board {
-  display: show;
   clear: right;
+  display: show;
   vertical-align: bottom;
-  float:left;
+  margin-left: 25%;
 }
 .sign-out-btn-form {
-  bottom: 5px;
-  clear: both;
-  float: right;
+  margin: 10px;
+  position: relative;
+  text-align: center;
   vertical-align: bottom;
 }
 
@@ -87,6 +87,9 @@ tr:last-child td {
   display: none;
 }
 
+.stats {
+  font-size: 10px;
+}
 
 .change-password {
   display: none;

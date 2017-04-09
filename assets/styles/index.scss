@@ -92,15 +92,18 @@ tr:last-child td {
 .change-password {
   display: none;
 }
-// td.O {
-//   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-//   color:#455c7b;
-// }
-// td.X {
-//   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-//   color:#ac6c82;
-// }
-// td.X:hover, td.O:hover { background:transparent !important }
+
+.x {
+  color: #455c7b;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+.o {
+  color: #ac6c82;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+td.X:hover, td.O:hover { background:transparent !important }
 //
 // td.hover-0:after, td.hover-1:after {
 //   content:"X";

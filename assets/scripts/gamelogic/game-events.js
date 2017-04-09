@@ -71,6 +71,12 @@ const putMarker = function () {
     // this allows the board on screen to directly mimic
     // the board stored in memory
     id = $(this).attr('id')
+    if (playerIs === 'X') {
+      $(this).addClass('x')
+    } else $(this).addClass('o')
+    // if (playerIs === 'X') {
+    //   $(this).attr('class', 'X')
+    // } else $(this).attr('class', 'O')
     // stores in store for later use
     store.cell = id
     // build update api call body to update server
@@ -109,22 +115,26 @@ const putMarker = function () {
       // updates player display on page
       $('.playerDiv').text(playerIs)
     } else {
+      $(this).text(playerIs)
       // hard coded game over state
-      gamedata = {
-        'game': {
-          'cell': {
-            'index': id,
-            'value': playerIs
-          },
-          'over': true
+      const endGame = function () {
+        gamedata = {
+          'game': {
+            'cell': {
+              'index': id,
+              'value': playerIs
+            },
+            'over': true
+          }
         }
-      }
       // updates number of games on screen
-      getGamesOver()
+        getGamesOver()
       // passes final game state to server
-      gameapi.updateGame(gamedata)
+        gameapi.updateGame(gamedata)
       // clears the board and starts a new game
-      resetBoard()
+        resetBoard()
+      }
+      setTimeout(endGame, 5000)
     }
   }
 }

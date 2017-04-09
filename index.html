@@ -32,35 +32,34 @@
    </div>
   </nav>
                                <!--BEGIN BODY-->
-  <div class='container'>
-    <div class='starter-template'>
-      <div class='dummy-board'><img src='https://nicoleleonick.files.wordpress.com/2013/12/a-3.jpg' alt='A tic tac toe board'></div>
+<div class='row-fluid'>
+<div class='span12'>
+
+   <div class="">Number of Games Completed: <div class='NumberOfGames'></div></div><div class="">Number of X wins: <div class='NumberXwins'></div></div><div class="">Number of O wins: <div class='NumberOwins'></div></div><div class="">Number of Mofo wins: <div class='NumberCatWins'></div></div>
+</div><!--end row fluid-->
+<div class='span10'>
+  <div class='dummy-board'><img src='https://nicoleleonick.files.wordpress.com/2013/12/a-3.jpg' alt='A tic tac toe board'></div>
       <div class='board-container'>
-        <div>Number of Games Completed: <div class='NumberOfGames'></div></div>
-        <h1>TIC TAC TOE!!!</h1>
-      <table class='game-board'>
-        <tr>
-          <td class='game-cell-td'><div class='game-cell' id='6'>&nbsp;</div></td>
-          <td class='game-cell-td'><div class='game-cell' id='7'>&nbsp;</div></td>
-          <td class='game-cell-td'><div class='game-cell' id='8'>&nbsp;</div></td>
-        </tr>
-        <tr>
-          <td class='game-cell-td'><div class='game-cell' id='3'>&nbsp;</div></td>
-          <td class='game-cell-td'><div class='game-cell' id='4'>&nbsp;</div></td>
-          <td class='game-cell-td'><div class='game-cell' id='5'>&nbsp;</div></td>
-        </tr>
-        <tr>
-          <td class='game-cell-td'><div class='game-cell' id='0'>&nbsp;</div></td>
-          <td class='game-cell-td'><div class='game-cell' id='1'>&nbsp;</div></td>
-          <td class='game-cell-td'><div class='game-cell' id='2'>&nbsp;</div></td>
-        </tr>
-      </table>
-      <div class='scoreboard'>
-        The current player is: <div class='playerDiv'></div>
-      </div>
-    </div>
+          <table class='game-board'>
+            <tr>
+              <td class='game-cell-td'><div class='game-cell' id='6'>&nbsp;</div></td>
+              <td class='game-cell-td'><div class='game-cell' id='7'>&nbsp;</div></td>
+              <td class='game-cell-td'><div class='game-cell' id='8'>&nbsp;</div></td>
+            </tr>
+            <tr>
+              <td class='game-cell-td'><div class='game-cell' id='3'>&nbsp;</div></td>
+              <td class='game-cell-td'><div class='game-cell' id='4'>&nbsp;</div></td>
+              <td class='game-cell-td'><div class='game-cell' id='5'>&nbsp;</div></td>
+            </tr>
+            <tr>
+              <td class='game-cell-td'><div class='game-cell' id='0'>&nbsp;</div></td>
+              <td class='game-cell-td'><div class='game-cell' id='1'>&nbsp;</div></td>
+              <td class='game-cell-td'><div class='game-cell' id='2'>&nbsp;</div></td>
+            </tr>
+          </table>
+     </div>
   </div>
-                               <!--MODALS START HERE-->
+   <!--MODALS START HERE-->
                                <!--SIGN UP MODAL-->
       <div class='modal fade' id='signUpModal' tabindex='-1' role='dialog' aria-labelledby='mySignUpModal'>
         <div class='modal-dialog' role='document'>
@@ -175,7 +174,7 @@
        </div><!-- /.modal-dialog -->
      </div><!-- /.modal -->
                                 <!--END MODALS-->
-  </div>
+
   <form class='sign-out-btn-form' id='sign-out'>
     <fieldset>
       <input type='submit' class='sign-out-button' name='submit' value='Sign out!'>

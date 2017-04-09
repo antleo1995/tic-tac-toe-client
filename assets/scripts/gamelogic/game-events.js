@@ -73,11 +73,8 @@ const putMarker = function () {
     id = $(this).attr('id')
     // selects the color of the piece
     if (playerIs === 'X') {
-      $(this).addClass('x')
-    } else $(this).addClass('o')
-    // if (playerIs === 'X') {
-    //   $(this).attr('class', 'X')
-    // } else $(this).attr('class', 'O')
+      $(this).attr('class', 'game-cell x')
+    } else $(this).attr('class', 'game-cell o')
     // stores in store for later use
     store.cell = id
     // build update api call body to update server

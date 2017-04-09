@@ -62,7 +62,6 @@ const checkServerWins = function (board, player) {
     (board[6] === player && board[4] === player && board[2] === player)) {
     // if successful identify player and update their score.
     // returns true if either player wins to indicate game over
-    console.log('I ran and returned 1')
     return 1
   } else return 0
 }

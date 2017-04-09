@@ -6,13 +6,12 @@ body {
 }
 table {
   border-collapse: collapse;
-  margin: 0;
   padding: 0;
   position: relative;
   vertical-align: bottom;
   width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 25%;
+  margin-right: 25;
   margin-top: auto;
 }
 
@@ -46,8 +45,10 @@ tr:last-child td {
 
 .game-board {
   align-items: center;
+  position: relative;
+  top: 0;
+  clear: both;
 }
-
 .game-cell {
   overflow: hidden;
 }
@@ -58,6 +59,9 @@ tr:last-child td {
 }
 .dummy-board {
   display: show;
+  clear: right;
+  vertical-align: bottom;
+  float:left;
 }
 .sign-out-btn-form {
   bottom: 5px;
@@ -83,11 +87,6 @@ tr:last-child td {
   display: none;
 }
 
-.game-stats {
-  float: left;
-  height: 50px;
-  width: 50px;
-}
 
 .change-password {
   display: none;
@@ -103,8 +102,32 @@ tr:last-child td {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
-td.X:hover, td.O:hover { background:transparent !important }
+td.x:hover, td.o:hover { background:transparent !important }
 //
+// .wrapper {
+//   display: grid;
+//   grid-template-rows: auto;
+//   grid-gap: 0px;
+//   background-color: #fff;
+//   color: #444;
+//   float:left;
+// }
+// .a{
+//         grid-column: 1 ;
+//         grid-row: 1;
+// }
+// .b {
+//   grid-column: 2 ;
+//   grid-row: 1;
+// }
+// .c {
+//   grid-column: 3;
+//   grid-row: 1;
+// }
+// .d {
+//   grid-column: 4;
+//   grid-row: 1;
+// }
 // td.hover-0:after, td.hover-1:after {
 //   content:"X";
 //   display:block;

@@ -20,10 +20,8 @@ const onGetGameSuccess = (data) => {
   for (let i = 0; i < data.games.length; i++) {
     resultO = resultO + checkVictory.checkServerWins(store.gameData[i].cells, 'O')
   }
-  console.log(resultO)
-  console.log(resultX)
   const cat = data.games.length - (resultO + resultX)
-  console.log(cat)
+
   return data.games.length
 }
 const onGetGameFailure = (error) => {
@@ -34,5 +32,5 @@ module.exports = {
   createGameSuccess,
   gameCreateFailure,
   onGetGameSuccess,
-  onGetGameFailure
+  onGetGameFailure,
 }

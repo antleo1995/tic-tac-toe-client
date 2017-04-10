@@ -75,8 +75,10 @@ wireframe: http://imgur.com/a/X7hiG
 3: Run backend server with bundle exec rails server
 
 ## URL
-
+Prod URL:
 https://antleo1995.github.io/tic-tac-toe-client/
+Repo:
+https://github.com/antleo1995/tic-tac-toe-client
 
 ## [License](LICENSE)
 

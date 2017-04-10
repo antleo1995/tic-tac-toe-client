@@ -62,17 +62,20 @@ const checkServerWins = function (board, player) {
     (board[6] === player && board[4] === player && board[2] === player)) {
     // if successful identify player and update their score.
     // returns true if either player wins to indicate game over
-    return 1
-  } else return 0
+    return true
+  } else return false
 }
 const displayWins = function () {
   let resultX = 0
-  for (let i = 0; i < store.gameData.length; i++) {
-    resultX = resultX + checkServerWins(store.gameData[i].cells, 'X')
-  }
   let resultO = 0
   for (let i = 0; i < store.gameData.length; i++) {
-    resultO = resultO + checkServerWins(store.gameData[i].cells, 'O')
+      if (checkServerWins(store.gameData[i].cells, 'X') === true) {
+        resultX += 1
+        console.log(resultX)
+      } else if (checkServerWins(store.gameData[i].cells, 'O') === true) {
+        resultO += 1
+        console.log(resultO)
+      } else ("cat won")
   }
   const cat = store.gameData.length - (resultO + resultX)
   $('.NumberOfGames').text(store.gameData.length)

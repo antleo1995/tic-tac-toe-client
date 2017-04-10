@@ -1,5 +1,5 @@
 const store = require('../store.js')
-const games = require('./game-logic.js')
+const game = require('./game-logic.js')
 
 const createGameSuccess = (data) => {
   store.game = data.game
@@ -8,9 +8,16 @@ const createGameSuccess = (data) => {
 const gameCreateFailure = (error) => {
   return error
 }
+const updateGameSuccess = (data) => {
+  store.gameData = data.games
+}
+const updateGameFailure = (data) => {
+  store.gameData = data.games
+}
 const onGetGameSuccess = (data) => {
   store.gameData = data.games
-  games.displayWins()
+  game.displayWins()
+  console.log(data.games)
 }
 const onGetGameFailure = (error) => {
   return error
@@ -20,5 +27,7 @@ module.exports = {
   createGameSuccess,
   gameCreateFailure,
   onGetGameSuccess,
-  onGetGameFailure
+  onGetGameFailure,
+  updateGameSuccess,
+  updateGameFailure
 }

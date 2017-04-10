@@ -2,6 +2,7 @@
 const store = require('../store.js')
 const game = require('../gamelogic/game-events.js')
 const gameapi = require('../gamelogic/gameapi.js')
+const gameui = require('../gamelogic/gameui.js')
 // const gamelogic = require('../gamelogic/game-logic.js')
 
 const signUpSuccess = (data) => {
@@ -21,7 +22,6 @@ const signInSuccess = (data) => {
   $('.change-password').show()
   store.user = data.user
   game.createGame()
-  gameapi.getGamesOver()
 }
 const signInFailure = (error) => {
   $('#authenticationFailModal').modal('toggle')

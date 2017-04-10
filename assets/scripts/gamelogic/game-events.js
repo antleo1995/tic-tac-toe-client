@@ -24,6 +24,7 @@ const getGamesOver = function () {
 // creates game on server
 // createGameSuccess displays board
 const createGame = function () {
+  playerIs = 'X'
   gameapi.createGame(data)
   // catch/fail for createGame
   .then(gameui.createGameSuccess)
@@ -46,7 +47,7 @@ const resetBoard = function () {
   // resets number of moves
   numOfMoves = 1
   // sets player back to X
-  playerIs = 'X'
+  // playerIs = 'X'
   // updates playerIs display on page
   $('.playerDiv').text(playerIs)
   // resets gameOver to false so game can continue
@@ -63,6 +64,7 @@ const putMarker = function () {
   if (this.innerHTML === '&nbsp;' && gameOver === false) {
     // puts player on the board on screen
     $(this).text(playerIs)
+    store.player = playerIs
     // unhides the div
     $(this).show()
     // sets id to the corresponding id of the div clicked
@@ -98,6 +100,7 @@ const putMarker = function () {
     // runs a check for winner using the current player, current state of the
     // board, current number of moves, and game state
     gameOver = checkVictory.checkVictory(playerIs, board, numOfMoves, gameOver)
+    gameapi.updateGame(gamedata)
     // checks game state once more and continues if game is still going
     // otherwise catches to final else below and finishes the game
     // updating the server with final games state
@@ -109,9 +112,13 @@ const putMarker = function () {
         playerIs = 'O'
         // updates player display on page
         $('.playerDiv').text(playerIs)
+        gameapi.updateGame(gamedata)
       } else playerIs = 'X'
       // updates player display on page
       $('.playerDiv').text(playerIs)
+      gameapi.updateGame(gamedata)
+      .then(gameui.updateGameSuccess)
+      .catch(gameui.updateGameSuccess)
     } else {
       $(this).text(playerIs)
       // hard coded game over state
@@ -125,10 +132,9 @@ const putMarker = function () {
             'over': true
           }
         }
-      // updates number of games on screen
-        getGamesOver()
       // passes final game state to server
         gameapi.updateGame(gamedata)
+        getGamesOver()
       // clears the board and starts a new game
         resetBoard()
       }

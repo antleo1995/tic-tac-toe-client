@@ -9,15 +9,17 @@ table {
   padding: 0;
   position: relative;
   vertical-align: bottom;
-  width: 50%;
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 10px;
+  height: 250px;
+  width: 250px;
+  // width: 50%;
+  // margin-left: 25%;
+  // margin-right: 25%;
+  margin-top: 50px;
 }
 
 td {
-  width: 25%;
-  height:25%;
+  width: 75px;
+  height:75px;
   border: 0px solid #546363;
   border-right-width: 6px;
   border-bottom-width: 6px;

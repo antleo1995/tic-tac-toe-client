@@ -58,6 +58,16 @@ so I am ok with it for now.
 5: HTML - obv
 6: Javascript - this handles most of the heavy lifting in my code
 
+## Wireframes and User Stories
+wireframe: http://imgur.com/a/X7hiG
+
+1: As a user I would like to be able play a game of tic tac toe with a friend
+    without having to worry about when each of us takes our turn.
+2: As a user I would like to make my gameboard personalized.
+3: As a developer I would like the ability to track the number of games played
+    and by what users so I can use this data later on.
+4: As a user I would like to interact with the other player or leave messages.
+
 ## Installation
 
 1: Run command 'npm install'

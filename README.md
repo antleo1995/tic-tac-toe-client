@@ -59,7 +59,7 @@ so I am ok with it for now.
 6) Javascript - this handles most of the heavy lifting in my code
 
 ## Wireframes and User Stories
-wireframe) http)//imgur.com/a/X7hiG
+wireframe: http://imgur.com/a/X7hiG
 
 1) As a user I would like to be able play a game of tic tac toe with a friend
     without having to worry about when each of us takes our turn.

@@ -5,29 +5,29 @@
 Development process)
 
 1) Get authentication working
-   a) pretty simple mostly cut and paste
+   1) pretty simple mostly cut and paste
 2) Build bare bones UI
-   a) boostrapped this and ran with it
-   b) came back in end of development phase and made it play
+   1) boostrapped this and ran with it
+   2) came back in end of development phase and made it play
       nicer on screen - at least mildly more responsive after
 3) Build logic for UI
-   a) big props go out to my boy Jayson. My win-checking is
+   1) big props go out to my boy Jayson. My win-checking is
       pretty much identical to what he has. He and Rachel
       really assisted with this portion
 4) Connect back end to rest of game
-   a) again, Rachel helped me out here - was not too bad.
+   1) again, Rachel helped me out here - was not too bad.
       got the main bits working and left trying to calculate
       wins off the server for later. I kind of regret that
       as I found sooooo many bugs when I introduced this code.
-   b) also assisted several coworkers with these principles
+   2) also assisted several coworkers with these principles
       so I feel really comofortable with the basics, but
       the bugs...omg the bugs....
 5) Flesh out required features
-    a) this was the hardest phase (see above) - once I had the
+    1) this was the hardest phase (see above) - once I had the
       site working it took a GREAT deal more effort than i realized
       to seal up all the holes and make it smooth
 6) Add some finishing touches
-    a) would have liked to add more to the site, but once i got
+    1) would have liked to add more to the site, but once i got
        to the end and didn't have much time left, adding features
        was clearly a bad idea. i did not want to be up until 3 am
        trying to get a new feature up and running- multi player

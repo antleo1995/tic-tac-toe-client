@@ -85,6 +85,8 @@ tr:last-child td {
 
 .sign-out-button {
   display: none;
+  position: fixed;
+  bottom: 50px;
 }
 
 .img {
@@ -99,11 +101,9 @@ tr:last-child td {
 .create-game {
   display: none;
 }
+
 .greeting {
   color: #9d9d9d;
-}
-.reset-button {
-  display: none;
 }
 
 .stats {

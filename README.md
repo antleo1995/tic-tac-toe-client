@@ -2,7 +2,7 @@
 
 ## Tic Tac Toe
 
-Development process)
+Development process:
 
 1) Get authentication working
    1) pretty simple mostly cut and paste

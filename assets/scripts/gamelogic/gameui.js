@@ -17,7 +17,6 @@ const updateGameFailure = (data) => {
 const onGetGameSuccess = (data) => {
   store.gameData = data.games
   game.displayWins()
-  console.log(data.games)
 }
 const onGetGameFailure = (error) => {
   return error

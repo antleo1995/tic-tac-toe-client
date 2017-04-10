@@ -71,11 +71,9 @@ const displayWins = function () {
   for (let i = 0; i < store.gameData.length; i++) {
       if (checkServerWins(store.gameData[i].cells, 'X') === true) {
         resultX += 1
-        console.log(resultX)
       } else if (checkServerWins(store.gameData[i].cells, 'O') === true) {
         resultO += 1
-        console.log(resultO)
-      } else ("cat won")
+      } else {}
   }
   const cat = store.gameData.length - (resultO + resultX)
   $('.NumberOfGames').text(store.gameData.length)

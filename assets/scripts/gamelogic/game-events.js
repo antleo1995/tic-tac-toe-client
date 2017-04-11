@@ -30,6 +30,7 @@ const createGame = function () {
   .then(gameui.createGameSuccess)
   .catch(gameui.gameCreateFailure)
   console.log('create game ran')
+  getGamesOver()
 }
 // board reset function
 const resetBoard = function () {

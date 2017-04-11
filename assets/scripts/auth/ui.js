@@ -34,6 +34,8 @@ const signOutSuccess = () => {
   $('.create-game').hide()
   $('.reset-button').hide()
   $('.change-password').hide()
+  $('.dummy-board').show()
+  $('.statsVal').text('')
   store.user = null
   store.games = null
 }

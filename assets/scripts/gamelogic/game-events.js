@@ -16,7 +16,7 @@ $('.playerDiv').text(playerIs)
 // display portion happens in onGetGameSuccess
 const getGamesOver = function () {
 // runs api call passing data
-  gameapi.getGamesOver(data)
+  gameapi.getGamesOver()
 // catch/fail for getGamesOver
   .then(gameui.onGetGameSuccess)
   .catch(gameui.onGetGameFailure)
@@ -25,10 +25,11 @@ const getGamesOver = function () {
 // createGameSuccess displays board
 const createGame = function () {
   playerIs = 'X'
-  gameapi.createGame(data)
+  gameapi.createGame()
   // catch/fail for createGame
   .then(gameui.createGameSuccess)
   .catch(gameui.gameCreateFailure)
+  console.log('create game ran')
 }
 // board reset function
 const resetBoard = function () {
@@ -95,12 +96,13 @@ const putMarker = function () {
     // runs the api call passing the gamedata we just built int the
     // above block of code
     gameapi.updateGame(gamedata)
+    .then(gameui.updateGameSuccess)
+    .catch(gameui.updateGameSuccess)
     // updates the array in memory
     board[id] = playerIs
     // runs a check for winner using the current player, current state of the
     // board, current number of moves, and game state
     gameOver = checkVictory.checkVictory(playerIs, board, numOfMoves, gameOver)
-    gameapi.updateGame(gamedata)
     // checks game state once more and continues if game is still going
     // otherwise catches to final else below and finishes the game
     // updating the server with final games state
@@ -112,7 +114,6 @@ const putMarker = function () {
         playerIs = 'O'
         // updates player display on page
         $('.playerDiv').text(playerIs)
-        gameapi.updateGame(gamedata)
       } else playerIs = 'X'
       // updates player display on page
       $('.playerDiv').text(playerIs)
@@ -134,11 +135,13 @@ const putMarker = function () {
         }
       // passes final game state to server
         gameapi.updateGame(gamedata)
-        getGamesOver()
+        .then(gameui.updateGameSuccess)
+        .catch(gameui.updateGameSuccess)
       // clears the board and starts a new game
         resetBoard()
       }
       setTimeout(endGame, 2500)
+      setTimeout(getGamesOver, 6000)
     }
   }
 }
@@ -147,6 +150,7 @@ const addGameHandlers = () => {
   // add the putMarker click event to the
   // cells on the game board
   $('.game-cell').on('click', putMarker)
+  $('.stats').on('click', getGamesOver)
 }
 
 module.exports = {

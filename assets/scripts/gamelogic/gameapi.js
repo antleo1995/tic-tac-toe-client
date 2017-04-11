@@ -42,6 +42,7 @@ const getAllGames = (data) => {
     data
   })
 }
+
 module.exports = {
   createGame,
   updateGame,

@@ -12,15 +12,6 @@ let gameOver = false
 let board = ['', '', '', '', '', '', '', '', '']
 // displays the current player
 $('.playerDiv').text(playerIs)
-// retrieves the number of games completed on server
-// display portion happens in onGetGameSuccess
-const getGamesOver = function () {
-// runs api call passing data
-  gameapi.getGamesOver()
-// catch/fail for getGamesOver
-  .then(gameui.onGetGameSuccess)
-  .catch(gameui.onGetGameFailure)
-}
 // creates game on server
 // createGameSuccess displays board
 const createGame = function () {
@@ -31,6 +22,15 @@ const createGame = function () {
   .catch(gameui.gameCreateFailure)
   console.log('create game ran')
   getGamesOver()
+}
+// retrieves the number of games completed on server
+// display portion happens in onGetGameSuccess
+const getGamesOver = function () {
+// runs api call passing data
+  gameapi.getGamesOver()
+// catch/fail for getGamesOver
+  .then(gameui.onGetGameSuccess)
+  .catch(gameui.onGetGameFailure)
 }
 // board reset function
 const resetBoard = function () {
@@ -57,6 +57,11 @@ const resetBoard = function () {
   // creates a new game on server
   // i found this necessary for a bug fix
   createGame()
+}
+const updateGame = function (gamedata) {
+   gameapi.updateGame(gamedata)
+  .then(gameui.updateGameSuccess)
+  .catch(gameui.updateGameSuccess)
 }
 // primary function of board
 // added to each td on page load
@@ -96,9 +101,7 @@ const putMarker = function () {
     }
     // runs the api call passing the gamedata we just built int the
     // above block of code
-    gameapi.updateGame(gamedata)
-    .then(gameui.updateGameSuccess)
-    .catch(gameui.updateGameSuccess)
+    updateGame(gamedata)
     // updates the array in memory
     board[id] = playerIs
     // runs a check for winner using the current player, current state of the
@@ -118,9 +121,7 @@ const putMarker = function () {
       } else playerIs = 'X'
       // updates player display on page
       $('.playerDiv').text(playerIs)
-      gameapi.updateGame(gamedata)
-      .then(gameui.updateGameSuccess)
-      .catch(gameui.updateGameSuccess)
+      updateGame(gamedata)
     } else {
       $(this).text(playerIs)
       // hard coded game over state
@@ -135,14 +136,12 @@ const putMarker = function () {
           }
         }
       // passes final game state to server
-        gameapi.updateGame(gamedata)
-        .then(gameui.updateGameSuccess)
-        .catch(gameui.updateGameSuccess)
+      updateGame(gamedata)
       // clears the board and starts a new game
         resetBoard()
       }
-      setTimeout(endGame, 2500)
-      setTimeout(getGamesOver, 6000)
+      setTimeout(endGame, 1000)
+      setTimeout(getGamesOver, 3000)
     }
   }
 }

@@ -36,9 +36,10 @@ const checkVictory = function (player, board, numOfMoves, gameOver) {
   } else {
     if (numOfMoves < 9 && gameOver === false) {
       return false
-    } else (numOfMoves = 9 && gameOver === false)
-    $('#catWonModal').modal('toggle')
-    $('.reset-button').show()
+    } else if (numOfMoves === 9 && gameOver === false) {
+      $('#catWonModal').modal('toggle')
+      $('.reset-button').show()
+    }
   }
 }
 
@@ -69,11 +70,11 @@ const displayWins = function () {
   let resultX = 0
   let resultO = 0
   for (let i = 0; i < store.gameData.length; i++) {
-      if (checkServerWins(store.gameData[i].cells, 'X') === true) {
-        resultX += 1
-      } else if (checkServerWins(store.gameData[i].cells, 'O') === true) {
-        resultO += 1
-      } else {}
+    if (checkServerWins(store.gameData[i].cells, 'X') === true) {
+      resultX += 1
+    } else if (checkServerWins(store.gameData[i].cells, 'O') === true) {
+      resultO += 1
+    } else {}
   }
   const cat = store.gameData.length - (resultO + resultX)
   $('.NumberOfGames').text(store.gameData.length)

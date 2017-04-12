@@ -28,6 +28,8 @@ const signInFailure = (error) => {
   return error
 }
 const signOutSuccess = () => {
+  game.fillBoardNbsp()
+  game.resetGameOnSignout()
   $('.sign-out-button').hide()
   $('#signOutModal').modal('toggle')
   $('.game-board').hide()
@@ -38,6 +40,9 @@ const signOutSuccess = () => {
   $('.statsVal').text('')
   store.user = null
   store.games = null
+  store.cell = null
+  store.id = null
+  store.player
 }
 const signOutFailure = (error) => {
   return error

@@ -2,8 +2,6 @@ const checkVictory = require('./game-logic.js')
 const gameapi = require('./gameapi.js')
 const gameui = require('./gameui.js')
 const store = require('../store.js')
-// empty string object to pass to api for createGame
-const data = '{}'
 // instantiates the needed set of variables
 let id = null
 let playerIs = 'X'
@@ -12,6 +10,7 @@ let gameOver = false
 let board = ['', '', '', '', '', '', '', '', '']
 // displays the current player
 $('.playerDiv').text(playerIs)
+
 // creates game on server
 // createGameSuccess displays board
 const createGame = function () {
@@ -20,7 +19,6 @@ const createGame = function () {
   // catch/fail for createGame
   .then(gameui.createGameSuccess)
   .catch(gameui.gameCreateFailure)
-  console.log('create game ran')
   getGamesOver()
 }
 // retrieves the number of games completed on server
@@ -32,9 +30,7 @@ const getGamesOver = function () {
   .then(gameui.onGetGameSuccess)
   .catch(gameui.onGetGameFailure)
 }
-// board reset function
-const resetBoard = function () {
-  // fills div tags in table back with non-breaking space
+const fillBoardNbsp = function () {
   $('#0').text(String.fromCharCode(160))
   $('#1').text(String.fromCharCode(160))
   $('#2').text(String.fromCharCode(160))
@@ -44,12 +40,17 @@ const resetBoard = function () {
   $('#6').text(String.fromCharCode(160))
   $('#7').text(String.fromCharCode(160))
   $('#8').text(String.fromCharCode(160))
+}
+// board reset function
+const resetGame = function () {
+  // fills div tags in table back with non-breaking space
+  fillBoardNbsp()
   // sets board back to all empty
   board = ['', '', '', '', '', '', '', '', '']
   // resets number of moves
   numOfMoves = 1
   // sets player back to X
-  // playerIs = 'X'
+  playerIs = 'X'
   // updates playerIs display on page
   $('.playerDiv').text(playerIs)
   // resets gameOver to false so game can continue
@@ -58,8 +59,24 @@ const resetBoard = function () {
   // i found this necessary for a bug fix
   createGame()
 }
+const resetGameOnSignout = function () {
+  // fills div tags in table back with non-breaking space
+  fillBoardNbsp()
+  // sets board back to all empty
+  board = ['', '', '', '', '', '', '', '', '']
+  // resets number of moves
+  numOfMoves = 1
+  // sets player back to X
+  playerIs = 'X'
+  // updates playerIs display on page
+  $('.playerDiv').text(playerIs)
+  // resets gameOver to false so game can continue
+  gameOver = false
+}
+// modularized this call to re-use
+// updates gameserver with gamedata
 const updateGame = function (gamedata) {
-   gameapi.updateGame(gamedata)
+  gameapi.updateGame(gamedata)
   .then(gameui.updateGameSuccess)
   .catch(gameui.updateGameSuccess)
 }
@@ -99,6 +116,8 @@ const putMarker = function () {
         'over': gameOver
       }
     }
+    store.updateData = gamedata
+    store.playerIs = playerIs
     // runs the api call passing the gamedata we just built int the
     // above block of code
     updateGame(gamedata)
@@ -136,12 +155,13 @@ const putMarker = function () {
           }
         }
       // passes final game state to server
-      updateGame(gamedata)
+        updateGame(gamedata)
+        store.playerIs = playerIs
       // clears the board and starts a new game
-        resetBoard()
+        resetGame()
       }
       setTimeout(endGame, 1000)
-      setTimeout(getGamesOver, 3000)
+      setTimeout(getGamesOver, 1500)
     }
   }
 }
@@ -150,15 +170,16 @@ const addGameHandlers = () => {
   // add the putMarker click event to the
   // cells on the game board
   $('.game-cell').on('click', putMarker)
-  $('.stats').on('click', getGamesOver)
 }
 
 module.exports = {
   putMarker,
   addGameHandlers,
-  resetBoard,
+  resetGame,
   createGame,
   getGamesOver,
   playerIs,
-  id
+  id,
+  fillBoardNbsp,
+  resetGameOnSignout
 }

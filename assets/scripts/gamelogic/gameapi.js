@@ -9,7 +9,7 @@ const createGame = (data) => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: ''
   })
 }
 const updateGame = (data) => {

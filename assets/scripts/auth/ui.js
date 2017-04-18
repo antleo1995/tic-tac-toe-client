@@ -8,6 +8,8 @@ const gameui = require('../gamelogic/gameui.js')
 const signUpSuccess = (data) => {
   $('#signUpModal').modal('toggle')
   $('#signInModal').modal('toggle')
+  $('#sign-up')[0].reset()
+  $('#sign-in')[0].reset()
 }
 
 const signUpFailure = (error) => {
@@ -20,6 +22,10 @@ const signInSuccess = (data) => {
   $('#signInModal').modal('toggle')
   $('.game-board').show()
   $('.change-password').show()
+  $('.signUpNav').hide()
+  $('.passwordChangeLink').show()
+  $('#sign-in')[0].reset()
+  $('#sign-up')[0].reset()
   store.user = data.user
   game.createGame()
 }
@@ -37,6 +43,8 @@ const signOutSuccess = () => {
   $('.reset-button').hide()
   $('.change-password').hide()
   $('.dummy-board').show()
+  $('.signUpNav').show()
+  $('.passwordChangeLink').hide()
   $('.statsVal').text('')
   store.user = null
   store.games = null
@@ -49,6 +57,8 @@ const signOutFailure = (error) => {
 }
 const changePasswordSuccess = () => {
   $('#changePasswordSucceedModal').modal('toggle')
+  $('#changePasswordModal').modal('toggle')
+  $('#change-password')[0].reset()
 }
 const changePasswordFailure = (error) => {
   $('#authenticationFailModal').modal('toggle')

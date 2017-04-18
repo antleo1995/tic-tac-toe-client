@@ -25,8 +25,9 @@
       </div>
       <div id='navbar' class='collapse navbar-collapse'>
         <ul class='nav navbar-nav'>
-          <li><a href='#signUp' id='signUp'>Sign Up!</a></li>
-          <li><a href='#signIn' id='signIn'>Sign in to play!</a></li>
+          <li><a href='#signUp' class="signUpNav" id='signUp'>Sign Up!</a></li>
+          <li><a href='#signIn' class="signUpNav" id='signIn'>Sign in to play!</a></li>
+          <li><a href='#changePasswordModal' data-toggle='modal' data-target='#changePasswordModal'><div class="passwordChangeLink">Change Password</div></a></li>
           </div>
         </ul>
       </div><!--/.nav-collapse -->
@@ -43,8 +44,8 @@
 
 <!-- <div class='dummy-board'-->
 <div class='dummy-board'>
-  <div class='col-xs-4'></div>
-  <div class='col-xs-4'>
+  <div class='col-s-4 col-xs-1 col-md-4 col-lg-4'></div>
+  <div class='col-s-4 col-xs-1 col-md-4 col-lg-4'>
     <table class='dummy'>
       <tr>
         <td class='dummy-cell'><div>&nbsp;</div></td>
@@ -63,12 +64,12 @@
       </tr>
     </table>
   </div>
-  <div class='col-xs-4'></div>
+  <div class='col-s-4 col-xs-1 col-md-4 col-lg-4'></div>
 </div>
  <!-- dummy board ends -->
 
-<div class='col-s-4 col-xs-12 col-md-4 col-lg-4'></div>
- <div class='col-s-4 col-xs-12 col-md-4 col-lg-4'>
+<div class='col-s-4 col-xs-1 col-md-4 col-lg-4'></div>
+ <div class='col-s-4 col-xs-10 col-md-4 col-lg-4'>
 
       <div class='board-container'>
 
@@ -89,19 +90,20 @@
               <td class='game-cell-td'><div class='game-cell' id='2'>&nbsp;</div></td>
             </tr>
           </table>
+
      </div>
    </div>
- <div class='col-s-4 ol-xs-12 col-md-12 col-lg-4'></div>
+ <div class='col-s-4 col-xs-1 col-md-4 col-lg-4'></div>
 
-  <div class='col-xs-4 col-md-4'></div>
-    <div class='col-xs-4 col-md-4'>
+  <div class='col-s-1 col-xs-1 col-md-1 col-lg-1'></div>
+    <div class='col-s-10 col-xs-10 col-md-10 col-lg-10'>
       <form class='sign-out-btn-form' id='sign-out'>
-        <fieldset>
-          <input type='submit' class='sign-out-button' name='submit' value='Sign out!'>
-        </fieldset>
+          <input type='submit' class='sign-out-button' name='submit' value='Sign out now!'>
      </form>
+
    </div>
-<div class='col-xs-4 col-md-4'></div>
+<div class='col-s-1 col-xs-1 col-md-1 col-lg-1'>
+</div>
    <!--MODALS START HERE-->
                                <!--SIGN UP MODAL-->
       <div class='modal fade' id='signUpModal' tabindex='-1' role='dialog' aria-labelledby='mySignUpModal'>
@@ -135,14 +137,11 @@
             <div class='modal-body'>
               <form id='sign-in'>
                 <fieldset>
-                  <input type='text' name='credentials[email]' id='sign-in-email' placeholder='Input your email'>
-                  <input type='password' name='credentials[password]' id='sign-in-password' placeholder='Password'>
+                  <input type='text' class="sign-in-form" name='credentials[email]' id='sign-in-email' placeholder='Input your email'>
+                  <input type='password' class="sign-in-form" name='credentials[password]' id='sign-in-password' placeholder='Password'>
                   <input type='submit' name='submit' value='Sign in!'>
                 </fieldset>
               </form>
-              <div class="modal-footer">
-               <a href='#changePasswordModal' data-toggle='modal' data-target='#changePasswordModal'>Change Password</a>
-              </div>
             </div><!-- /.modal-body -->
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
